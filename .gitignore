@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Ignore virtual environment folder
+venv/
+
+# Ignore authentication file
+authentication.json

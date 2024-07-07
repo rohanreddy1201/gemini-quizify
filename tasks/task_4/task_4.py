@@ -66,8 +66,8 @@ class EmbeddingClient:
 # Streamlit interface
 if __name__ == "__main__":
     model_name = "textembedding-gecko@003"
-    project = "sample-mission-428515"
-    location = "us-west1"
+    project = "YOUR-PROJECT-ID"
+    location = "us-central1"
 
     embedding_client = EmbeddingClient(model_name, project, location)
     

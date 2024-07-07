@@ -45,8 +45,8 @@ if __name__ == "__main__":
     # Configuration for EmbeddingClient
     embed_config = {
         "model_name": "textembedding-gecko@003",
-        "project": "sample-mission-428515",
-        "location": "us-west1"
+        "project": "YOUR-PROJECT-ID",
+        "location": "us-central1"
     }
     
     screen = st.empty() # Screen 1, ingest documents
