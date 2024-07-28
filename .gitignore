@@ -366,5 +366,5 @@ FodyWeavers.xsd
 venv/
 
 # Ignore secrets and authentication files
-# .streamlit/secrets.toml
+.streamlit/secrets.toml
 authenticate.json
