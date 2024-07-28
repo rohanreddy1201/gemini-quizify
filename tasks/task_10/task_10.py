@@ -2,6 +2,10 @@ import streamlit as st
 import os
 import sys
 import json
+import pysqlite3 as sqlite3
+# Override the sqlite3 module in sys.modules
+sys.modules['sqlite3'] = sqlite3
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from google.oauth2 import service_account
 from tasks.task_3.task_3 import DocumentProcessor
