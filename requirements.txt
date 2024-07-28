@@ -1,6 +1,6 @@
 streamlit
 chromadb
 langchain
-langchain-community
+langchain_community==0.1.0
 langchain-google-vertexai
 pypdf
