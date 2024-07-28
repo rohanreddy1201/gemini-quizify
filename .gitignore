@@ -365,5 +365,6 @@ FodyWeavers.xsd
 # Ignore virtual environment folder
 venv/
 
-# Ignore authentication file
-authentication.json
+# Ignore secrets and authentication files
+.streamlit/secrets.toml
+authenticate.json

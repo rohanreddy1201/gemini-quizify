@@ -1,6 +1,7 @@
 
 from langchain_google_vertexai import VertexAIEmbeddings
 import streamlit as st
+from google.oauth2 import service_account
 
 
 class EmbeddingClient:
@@ -30,14 +31,15 @@ class EmbeddingClient:
     Note: The 'embed_query' method has been provided for you. Focus on correctly initializing the class.
     """
     
-    def __init__(self, model_name, project, location):
+    def __init__(self, model_name, project, location, credentials):
         """
         Initialize the embedding client with a specific model, project, and location for Google VertexAI.
         """
         self.client = VertexAIEmbeddings(
             model_name=model_name,
             project=project,
-            location=location
+            location=location,
+            credentials=credentials
         )
         
     def embed_query(self, query):
@@ -65,11 +67,19 @@ class EmbeddingClient:
 
 # Streamlit interface
 if __name__ == "__main__":
-    model_name = "textembedding-gecko@003"
-    project = "YOUR-PROJECT-ID"
-    location = "us-central1"
+    
+    embed_config = {
+        "model_name": "textembedding-gecko@003",
+        "project": st.secrets["general"]["project"],
+        "location": st.secrets["general"]["location"]
+    }
+    
+    # Create a credentials object using the service account key
+    credentials = service_account.Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"]
+    )
 
-    embedding_client = EmbeddingClient(model_name, project, location)
+    embedding_client = EmbeddingClient(embed_config["model_name"], embed_config["project"], embed_config["location"], credentials)
     
     st.title('Text Embedding Display')
     query = st.text_input("Enter text to embed:", "Hello World!")

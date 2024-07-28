@@ -2,6 +2,7 @@
 import os
 import streamlit as st
 sys.path.append(os.path.abspath('../../'))
+from google.oauth2 import service_account
 from tasks.task_3.task_3 import DocumentProcessor
 from tasks.task_4.task_4 import EmbeddingClient
 
@@ -98,11 +99,16 @@ if __name__ == "__main__":
     
     embed_config = {
         "model_name": "textembedding-gecko@003",
-        "project": "YOUR-PROJECT-ID",
-        "location": "us-central1"
+        "project": st.secrets["general"]["project"],
+        "location": st.secrets["general"]["location"]
     }
     
-    embed_client = EmbeddingClient(**embed_config) # Initialize from Task 4
+    # Create a credentials object using the service account key
+    credentials = service_account.Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"]
+    )
+    
+    embed_client = EmbeddingClient(embed_config["model_name"], embed_config["project"], embed_config["location"], credentials) # Initialize from Task 4
     
     chroma_creator = ChromaCollectionCreator(processor, embed_client)
     
