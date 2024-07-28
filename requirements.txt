@@ -4,4 +4,4 @@ langchain
 langchain_community
 langchain-google-vertexai
 pypdf
-pysqlite3-binary
+pysqlite3
