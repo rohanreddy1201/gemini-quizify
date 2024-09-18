@@ -1,5 +1,5 @@
 streamlit
-chromadb==0.3.22
+chromadb
 langchain
 langchain_community
 langchain-google-vertexai
