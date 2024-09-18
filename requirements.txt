@@ -5,4 +5,4 @@ langchain_community
 langchain-google-vertexai
 pypdf
 pysqlite3-binary
-protobuf==3.20.x
+protobuf
