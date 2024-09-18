@@ -1,10 +1,10 @@
 streamlit==1.38.0
 chromadb==0.3.22
-langchain==0.0.228
-langchain_community==0.0.12
-langchain-google-vertexai==0.1.1
+langchain
+langchain_community
+langchain-google-vertexai
 pypdf==3.6.0
-pysqlite3-binary==0.5.3  # Use the latest available version
-protobuf==3.20.3  # Downgrade protobuf to avoid the error
+pysqlite3-binary==0.5.3
+protobuf==3.20.3
 opentelemetry-api==1.12.0
 opentelemetry-sdk==1.12.0
