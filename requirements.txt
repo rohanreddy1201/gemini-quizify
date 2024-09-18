@@ -1,8 +1,10 @@
-streamlit
-chromadb
-langchain
-langchain_community
-langchain-google-vertexai
-pypdf
-pysqlite3-binary
---force-reinstall protobuf==3.20.x
+streamlit==1.38.0
+chromadb==0.3.22  # Pin the version of ChromaDB
+langchain==0.0.228  # Pin to a stable version
+langchain_community==0.0.12  # Pin to a version that matches with langchain
+langchain-google-vertexai==0.1.1  # Ensure compatibility with langchain and protobuf
+pypdf==3.6.0  # Latest stable version
+pysqlite3-binary==0.4.6  # Latest stable version
+protobuf==3.20.3  # Downgrade protobuf to avoid the error
+opentelemetry-api==1.12.0  # Ensure compatibility with protobuf
+opentelemetry-sdk==1.12.0  # Ensure compatibility with protobuf
