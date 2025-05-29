@@ -53,6 +53,8 @@ class ChromaCollectionCreator:
             import shutil
             shutil.rmtree(persist_dir)
             st.info("Previous ChromaDB wiped clean.", icon="🧼")
+
+        os.makedirs(persist_dir, exist_ok=True)
         
         # Check for processed documents
         if len(self.processor.pages) == 0:
