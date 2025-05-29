@@ -75,7 +75,7 @@ class QuizGenerator:
         """
         try:
             self.llm = VertexAI(
-                      model_name="gemini-1.5-flash",
+                      model_name="gemini-2.0-flash-lite-001",
                       temperature=0.7,
                       max_output_tokens=150
              )
