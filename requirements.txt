@@ -5,5 +5,5 @@ langchain-community
 langchain-google-vertexai
 pypdf
 pysqlite3-binary
-pydantic>=2.0
+pydantic>=2.6.4,<3.0
 protobuf==3.20.3
