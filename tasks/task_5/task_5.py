@@ -11,6 +11,7 @@ from tasks.task_4.task_4 import EmbeddingClient
 from langchain_core.documents import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import Chroma
+from chromadb.config import Settings
 
 class ChromaCollectionCreator:
     def __init__(self, processor, embed_model):
@@ -54,7 +55,9 @@ class ChromaCollectionCreator:
             shutil.rmtree(persist_dir)
             st.info("Previous ChromaDB wiped clean.", icon="🧼")
 
-        os.makedirs(persist_dir, exist_ok=True)
+        settings = Settings(persist_directory=persist_dir, anonymized_telemetry=False)
+        client = chromadb.Client(settings)
+        client.reset()
         
         # Check for processed documents
         if len(self.processor.pages) == 0:
