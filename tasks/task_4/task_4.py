@@ -1,5 +1,5 @@
 
-from langchain_google_vertexai import VertexAIEmbeddings
+from langchain_google_vertexai.embeddings import VertexAIEmbeddings
 import streamlit as st
 from google.oauth2 import service_account
 
