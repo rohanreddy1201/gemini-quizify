@@ -111,3 +111,11 @@ if __name__ == "__main__":
                     else:
                         st.error("Incorrect!")
                         st.write(f"Explanation: {index_question['explanation']}")
+
+            # Safe Reset Button — outside of st.form
+            with st.expander("🔄 Reset Quiz", expanded=False):
+                st.markdown("Click the button below to reset the quiz and start over.")
+                if st.button("🔁 Reset Quiz", type="primary", use_container_width=True):
+                    st.session_state.clear()
+                    st.rerun()
+
