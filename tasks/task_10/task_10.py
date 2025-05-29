@@ -3,6 +3,7 @@ import os
 import sys
 import json
 import pysqlite3 as sqlite3
+import streamlit.components.v1 as components
 # Override the sqlite3 module in sys.modules
 sys.modules['sqlite3'] = sqlite3
 
@@ -100,6 +101,27 @@ if __name__ == "__main__":
 
                 st.form_submit_button("Next Question", on_click=lambda: quiz_manager.next_question_index(direction=1))
                 st.form_submit_button("Previous Question", on_click=lambda: quiz_manager.next_question_index(direction=-1))
+                with st.expander("🔄 Reset Options", expanded=False):
+                    st.markdown("If you'd like to start over and upload a new document:")
+                    
+                    col1, col2 = st.columns([1, 4])
+                    with col1:
+                        if st.button("🔁 Reset Quiz", use_container_width=True):
+                            # Use a Streamlit JS-based rerun to clear everything safely
+                            components.html(
+                                """
+                                <script>
+                                const confirmed = confirm("Are you sure you want to reset? This will clear the current quiz.");
+                                if (confirmed) {
+                                    window.parent.postMessage({ type: 'streamlit:clearCache' }, '*');
+                                    window.parent.postMessage({ type: 'streamlit:rerun' }, '*');
+                                }
+                                </script>
+                                """,
+                                height=0,
+                            )
+                            with col2:
+                                st.caption("This clears your current quiz and reloads the upload step.")
 
                 if answer_choice and answer is None:
                     st.warning("Please select an answer before submitting.")
