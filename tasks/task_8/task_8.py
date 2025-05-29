@@ -68,7 +68,7 @@ class QuizGenerator:
         :return: An instance or configuration for the LLM.
         """
         self.llm = VertexAI(
-            model_name = "gemini-1.0-pro",
+            model_name = "gemini-1.5-flash",
             temperature = 0.8, # Increased for less deterministic questions 
             max_output_tokens = 500
         )
