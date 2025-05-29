@@ -48,6 +48,11 @@ class ChromaCollectionCreator:
         
         Note: Ensure to replace placeholders like [Your code here] with actual implementation code as per the instructions above.
         """
+        persist_dir = "embed_db"
+        if os.path.exists(persist_dir):
+            import shutil
+            shutil.rmtree(persist_dir)
+            st.info("Previous ChromaDB wiped clean.", icon="🧼")
         
         # Check for processed documents
         if len(self.processor.pages) == 0:
