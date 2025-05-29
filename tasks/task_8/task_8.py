@@ -129,7 +129,11 @@ class QuizGenerator:
                 question_str = self.generate_question_with_vectorstore() # Use class method to generate question
                 
                 try:
-                    question = json.loads(question_str) # Convert the JSON String to a dictionary
+                    # Clean stray formatting or markdown wrappers like ```json blocks
+                    response_clean = question_str.strip()
+                    if "```json" in response_clean:
+                        response_clean = response_clean.split("```json")[-1].split("```")[0].strip()
+                        question = json.loads(response_clean)
                     
                 except json.JSONDecodeError:
                     print("Failed to decode question JSON.")
