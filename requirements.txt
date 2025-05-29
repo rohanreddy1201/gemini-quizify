@@ -1,9 +1,9 @@
 streamlit
 chromadb==0.5.4
-langchain>=0.1.14
-langchain-community>=0.0.24
-langchain-google-vertexai>=0.1.6
+langchain
+langchain-community
+langchain-google-vertexai
 pypdf
 pysqlite3-binary
-pydantic>=2.0,<3.0
+pydantic>=2.0
 protobuf==3.20.3
