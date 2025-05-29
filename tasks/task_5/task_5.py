@@ -11,6 +11,7 @@ from tasks.task_4.task_4 import EmbeddingClient
 from langchain_core.documents import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import Chroma
+import chromadb
 from chromadb.config import Settings
 
 class ChromaCollectionCreator:
