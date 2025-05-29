@@ -6,3 +6,4 @@ langchain-google-vertexai
 pypdf
 pysqlite3-binary
 pydantic==2.9.2
+protobuf==3.20.3
